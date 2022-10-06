@@ -25,18 +25,18 @@ namespace ConsoleApp
         {
             _logger.LogInformation("Running {example}", nameof(InvokeServiceHttpExample));
 
-            // _logger.LogInformation($"Invoking deposit");
-            // var data = new Transaction { Id = "17", Amount = 99m };
-            // var account = await _daprClient.InvokeMethodAsync<Transaction, Account>("routing", "deposit", data, cancellationToken);
-            // _logger.LogInformation("Returned: Id:{id} | Balance:{balance}", account.Id, account.Balance);
+            _logger.LogInformation($"Invoking deposit");
+            var data = new Transaction { Id = "17", Amount = 99m };
+            var account = await _daprClient.InvokeMethodAsync<Transaction, Account>("routing", "deposit", data, cancellationToken);
+            _logger.LogInformation("Returned: Id:{id} | Balance:{balance}", account.Id, account.Balance);
 
             _logger.LogInformation($"Invoking withdraw");
-            var data = new Transaction { Id = "17", Amount = 311m };
+            data = new Transaction { Id = "17", Amount = 311m };
             await _daprClient.InvokeMethodAsync<Transaction, Account>("routing", "withdraw", data, cancellationToken);
             _logger.LogInformation("Completed");
 
             _logger.LogInformation($"Invoking balance");
-            var account = await _daprClient.InvokeMethodAsync<Account>(HttpMethod.Get, "routing", "17", cancellationToken);
+            account = await _daprClient.InvokeMethodAsync<Account>(HttpMethod.Get, "routing", "17", cancellationToken);
             _logger.LogInformation("Received balance {balance}", account.Balance);
         }
 
