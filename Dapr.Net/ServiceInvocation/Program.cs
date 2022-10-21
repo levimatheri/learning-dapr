@@ -11,9 +11,9 @@ using IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddSingleton<DaprClient>(sp =>
         {
-            var httpPort = Environment.GetEnvironmentVariable("DAPR_HTTP_PORT");
             return new DaprClientBuilder()
                 .UseHttpEndpoint($"http://127.0.0.1:{Environment.GetEnvironmentVariable("DAPR_HTTP_PORT")}")
+                .UseGrpcEndpoint($"http://127.0.0.1:{Environment.GetEnvironmentVariable("DAPR_GRPC_PORT")}")
                 .Build();
         });
 
@@ -22,11 +22,12 @@ using IHost host = Host.CreateDefaultBuilder(args)
         // });
 
         //services.AddTransient<InvokeServiceHttpExample>();
-        services.AddTransient<InvokeServiceHttpClientExample>();
+        //services.AddTransient<InvokeServiceHttpClientExample>();
+        services.AddTransient<InvokeServiceGrpcExample>();
     })
     .Build();
 
 //await host.Services.GetRequiredService<InvokeServiceHttpExample>().RunAsync(default);
-await host.Services.GetRequiredService<InvokeServiceHttpClientExample>().RunAsync(default);
+await host.Services.GetRequiredService<InvokeServiceGrpcExample>().RunAsync(default);
 
 await host.RunAsync();

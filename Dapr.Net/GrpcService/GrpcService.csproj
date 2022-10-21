@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.9.0" />
+    <PackageReference Include="Dapr.Client" Version="1.9.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.49.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.50.0" PrivateAssets="All" />
+    <PackageReference Include="Google.Api.CommonProtos" Version="2.6.0" />
+  </ItemGroup>
+
+	 <ItemGroup>
+			<Protobuf Include="Protos\*.proto" ProtoRoot="Protos" GrpcServices="None" />
+	 </ItemGroup>
+
+</Project>
