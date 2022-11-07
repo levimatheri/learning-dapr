@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "ServiceInvocation Http Console App",
             "type": "coreclr",
@@ -36,6 +37,26 @@
             }
         },
         {
+            "name": "Sample Web API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-3",
+            "program": "${workspaceFolder}/WebAPISample/bin/Debug/net6.0/WebAPISample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/WebAPISample",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
@@ -56,12 +77,35 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "DAPR_HTTP_PORT": "3502",
-                "DAPR_GRPC_PORT": "50002"
+                "DAPR_GRPC_PORT": "50001"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             },
             "postDebugTask": "daprd-down"
+        },
+        {
+            "name": "Sample Web API with Dapr",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dapr-debug-3",
+            "program": "${workspaceFolder}/WebAPISample/bin/Debug/net6.0/WebAPISample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/WebAPISample",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DAPR_HTTP_PORT": "3802",
+                "DAPR_GRPC_PORT": "50004"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "postDebugTask": "daprd-down-3"
         },
         {
             "name": "ServiceInvocation Http Console App with Dapr",
@@ -79,6 +123,23 @@
             "stopAtEntry": false,
             "console": "internalConsole",
             "postDebugTask": "daprd-down-1"
+        },
+        {
+            "name": "PublishSubscribe Console App with Dapr",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dapr-debug-2",
+            "program": "${workspaceFolder}/PublishSubscribe/bin/Debug/net6.0/PublishSubscribe.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/PublishSubscribe",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DAPR_HTTP_PORT": "3702",
+                "DAPR_GRPC_PORT": "50003"
+            },
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "postDebugTask": "daprd-down-2"
         }
     ]
 }

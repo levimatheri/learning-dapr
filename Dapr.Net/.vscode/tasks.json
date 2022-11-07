@@ -26,6 +26,30 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build-2",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/PublishSubscribe/PublishSubscribe.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-3",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/WebAPISample/WebAPISample.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "publish",
             "command": "dotnet",
             "type": "process",
@@ -44,6 +68,30 @@
             "args": [
                 "publish",
                 "${workspaceFolder}/ServiceInvocation/ServiceInvocation.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-2",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/PublishSubscribe/PublishSubscribe.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-3",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/WebAPISample/WebAPISample.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -74,10 +122,34 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "watch-2",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/PublishSubscribe/PublishSubscribe.csproj",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch-3",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/WebAPISample/WebAPISample.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "appId": "routing",
             "appPort": 5225,
             "httpPort": 3502,
-            "grpcPort": 50002,
+            "grpcPort": 50001,
             "label": "dapr-debug",
             "type": "dapr",
             "dependsOn": "build"
@@ -99,6 +171,33 @@
             "appId": "DaprClient",
             "label": "daprd-down-1",
             "type": "daprd-down"
-        }
+        },
+        {
+            "appId": "DaprClient2",
+            "httpPort": 3702,
+            "grpcPort": 50003,
+            "label": "dapr-debug-2",
+            "type": "dapr",
+            "dependsOn": "build-2"
+        },
+        {
+            "appId": "DaprClient2",
+            "label": "daprd-down-2",
+            "type": "daprd-down"
+        },
+        {
+            "appId": "WebAPISample",
+            "appPort": 5116,
+            "httpPort": 3802,
+            "grpcPort": 50004,
+            "label": "dapr-debug-3",
+            "type": "dapr",
+            "dependsOn": "build-3"
+        },
+        {
+            "appId": "WebAPISample",
+            "label": "daprd-down-3",
+            "type": "daprd-down"
+        },
     ]
 }
