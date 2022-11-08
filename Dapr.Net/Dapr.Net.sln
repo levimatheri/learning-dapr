@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcService", "GrpcService\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublishSubscribe", "PublishSubscribe\PublishSubscribe.csproj", "{3CD60E78-3555-4A45-8065-6A5356436E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPISample", "WebAPISample\WebAPISample.csproj", "{067C4E72-3CB6-4299-86D2-5C45B4008850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPISample", "WebAPISample\WebAPISample.csproj", "{067C4E72-3CB6-4299-86D2-5C45B4008850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretStoreConfigProvider", "SecretStoreConfigProvider\SecretStoreConfigProvider.csproj", "{CA6EECCB-4DC8-49A5-80B0-CA334B91E9F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{067C4E72-3CB6-4299-86D2-5C45B4008850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{067C4E72-3CB6-4299-86D2-5C45B4008850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{067C4E72-3CB6-4299-86D2-5C45B4008850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6EECCB-4DC8-49A5-80B0-CA334B91E9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6EECCB-4DC8-49A5-80B0-CA334B91E9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6EECCB-4DC8-49A5-80B0-CA334B91E9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6EECCB-4DC8-49A5-80B0-CA334B91E9F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
